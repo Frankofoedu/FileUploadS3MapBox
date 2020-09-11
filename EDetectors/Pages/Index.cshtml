@@ -1,0 +1,27 @@
+﻿@page
+@model EDetectors.Pages.IndexModel
+@{
+}
+
+<form enctype="multipart/form-data" method="post">
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        @if (Model.MapBoxResponse != null)
+        {
+            @if (Model.MapBoxResponse.Error == null)
+            {
+                <label>File uploaded on MapBox. Name : @Model.MapBoxResponse.Name</label>
+            }
+            else
+            {
+                <label>File wasnt uploaded on MapBox. Error : @((string) Model.MapBoxResponse.Error)</label>
+            }
+
+        }
+
+        <label>Enter name for the file</label>
+        <input type="text" asp-for="TileName" required />
+        <input type="file" name="formFile" />
+        <input type="submit" />
+    </div>
+</form>
