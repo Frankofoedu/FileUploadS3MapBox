@@ -40,11 +40,11 @@ namespace EDetectors
 
             services.Configure<IISServerOptions>(options =>
             {
-                options.MaxRequestBodySize = int.MaxValue;
+                options.MaxRequestBodySize = long.MaxValue;
             });
             services.Configure<KestrelServerOptions>(options =>
             {
-                options.Limits.MaxRequestBodySize = int.MaxValue;
+                options.Limits.MaxRequestBodySize = long.MaxValue;
             });
 
             services.AddRazorPages();

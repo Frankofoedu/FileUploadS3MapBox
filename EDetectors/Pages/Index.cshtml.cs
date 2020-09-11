@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EDetectors.Pages
 {
-    [RequestFormLimits(MultipartBodyLengthLimit = 2147483647)]
+    [RequestFormLimits(MultipartBodyLengthLimit = long.MaxValue)]
     public class IndexModel : PageModel
     {
         private readonly IMapService _mapService;
