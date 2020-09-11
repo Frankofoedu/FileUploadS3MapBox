@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using EDetectors.Services;
 using Amazon.S3;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace EDetectors
 {
@@ -41,6 +42,11 @@ namespace EDetectors
             {
                 options.MaxRequestBodySize = int.MaxValue;
             });
+            services.Configure<KestrelServerOptions>(options =>
+            {
+                options.Limits.MaxRequestBodySize = int.MaxValue;
+            });
+
             services.AddRazorPages();
         }
 
